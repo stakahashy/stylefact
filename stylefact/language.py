@@ -1,5 +1,5 @@
 """
-The toolkit for the statistical laws of natural languages
+The toolkit for the statistical laws of natural language
 """
 import numpy as np
 from collections import Counter
@@ -11,11 +11,34 @@ def zipf(words,relative_freq=False):
     Zipf's law
 
     Compute the rank-frequency distribution.
-    x: rank
-    y: frequency of i-th most frequent words
 
+    Bibliography:
     George K. Zipf (1949) Human Behavior and the Principle of Least Effort. Addison-Wesley.
     
+    Parameters
+    _________
+    words : list
+        list of symbols to be analyzed
+    relative_freq : bool, optional
+        If True, the frequency is scaled to the empirical probability.
+        Default is False.
+
+    Returns
+    _______
+    x : list
+        list of ranks
+    y : list
+        frequency of i-th most frequent words
+        
+
+    Raises
+    ______
+
+    See also
+    ________
+
+    Examples
+    ________
 
     """
     counts = Counter(words)
@@ -31,15 +54,25 @@ def Heap(words,x=None):
 
     Compute the growth of the number of unique words with respect to the text size.
 
+    Bibliography:
+    Heaps, Harold Stanley (1978), Information Retrieval: Computational and Theoretical Aspects, Academic Press. Heaps' law is proposed in Section 7.5 (pp. 206–208).
+    Herdan, Gustav (1960), Type-token mathematics, The Hague: Mouton.
+
     Parameters
     __________
-    words: list
+    words : list
+        list of symbols to be analyzed
     x: list, optional
+        list of text sizes
+        if x = None, x is specified by utils.generate_x, suitable for log-log plot.
+        Default is None.
 
     Returns
     _______
-    x: text size
-    y: the number of unique words
+    x: list
+        list of text size
+    y: list
+        list of number of unique words up to  x[i]-th words
 
     Examples
     ________
@@ -60,7 +93,37 @@ def Heap(words,x=None):
 def MI(words,x=None,threshold = 1e-8):
     """
     Mutual Information: I(X;Y)
+
+    Bibliography:
     Mutual Information Functions of Natural Language Texts. Wentian Li. Santa Fe Research 1989.
+
+    Paramters
+    _________
+    words : list
+        list of symbols to be analyzed
+    x : list, optional
+        list of distances to compute the mutual information.
+        if x = None, x is specified by utils.generate_x, suitable for log-log plot.
+        Default is None. 
+    threshold : float, optional
+        threshold value to avoid log(0) computation. 
+
+    Returns
+    _______
+    x : list
+        list of distances
+    y : list
+        list of mutual information values for distance of x[i]
+
+    Raises
+    ______
+
+    See also
+    ________
+
+    Examples
+    ________
+    >>> from language import MI
     """
     if x is None:
         pass

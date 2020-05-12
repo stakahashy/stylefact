@@ -1,5 +1,5 @@
 import visualize as vs
-import numpy as np
+impor numpy as np
 import stats
 
 #volatility clustering
