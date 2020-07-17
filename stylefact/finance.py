@@ -6,8 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import powerlaw
 from bisect import bisect_left
-def log_distribution(series,side='positive',sample_point=100,ticks=None):
-
+def log_distribution(series,side='positive',ticks=None):
     """
     
     Parameters
@@ -15,13 +14,16 @@ def log_distribution(series,side='positive',sample_point=100,ticks=None):
     series : array-like
        time-series to be evaluated
     side : str (positive,negative)
+        the side to evaluate the tail
+    ticks : list
+        
 
     Returns
     _______
     ticks : list
-        list of ranks
+        
     dist_values : list
-        frequency of i-th most frequent words
+        the probability between ticks[i] and ticks[i+1]
         
 
     Raises
@@ -32,6 +34,9 @@ def log_distribution(series,side='positive',sample_point=100,ticks=None):
 
     Examples
     ________
+
+    References
+    __________
     """
 
     assert side in ['positive','negative']
@@ -42,7 +47,7 @@ def log_distribution(series,side='positive',sample_point=100,ticks=None):
     else:
         series = series[series < 0]
         if ticks is None:
-        ticks = np.logspace(np.log(np.min(series),0),num=sample_point)
+            ticks = np.logspace(np.log(np.min(series),0),num=sample_point)
     
     series = np.sort(series)
     dist_values = []
@@ -77,6 +82,9 @@ def linear_distribution(series):
 
     Examples
     ________
+
+    References
+    __________
     """
 
     ticks = np.linspace(np.min(series),np.max(series),num=100)
@@ -114,6 +122,12 @@ def autocorrelation(series,max_lag=1000,lags=None):
 
     Examples
     ________
+
+    References
+    __________
+    .. [1] Granger, C.W. J., Ding, Z. Some Properties of Absolute Return: An Alternative Measure of Risk , Annales d'Économie et de Statistique, No. 40, pp. 67-91 1995
+       [2] R. Cont, Empirical properties of asset returns: Stylized facts and statistical issues, Quantitative Finance, 1 (2001), pp. 1–14.
+
     """
     if lags is None:
         lags = [i+1 for i in range(max_lag)]
@@ -129,14 +143,7 @@ def autocorrelation(series,max_lag=1000,lags=None):
 
 def leverage_effect(series,max_lag=50,lags=None):
     """
-    Compute leverage effect, the lead-lag correlation between price return and volatility.
-
-    Bibliography:
-    Leverage Effect in Financial Markets: The Retarded Volatility Model
-    Jean-Philippe Bouchaud, Andrew Matacz, and Marc Potters
-    Phys. Rev. Lett. 87, 228701 2001
-    Return-volatility correlation in finacial dynamics. T. Qiu, B. Zheng, F.Ren and S.Trimper. 2006. Physical Review E 73 06513
-
+    The leverage effect, the lead-lag correlation between price return and volatility.
     
     Parameters
     _________
@@ -163,6 +170,11 @@ def leverage_effect(series,max_lag=50,lags=None):
 
     Examples
     ________
+
+    References
+    __________
+    .. [1] J.P. Bouchaud et al.,  Leverage Effect in Financial Markets: The Retarded Volatility Model.↲ Physical Review Letter 87, 228701 2001.
+    .. [2] T. Qiu et al., Return-volatility correlation in finacial dynamics. Physical Review E 73 06513 2006.
     """
     if lags is None:
         lags = [i+1 for i in range(max_lag)]
@@ -182,12 +194,28 @@ def leverage_effect(series,max_lag=50,lags=None):
         lev_values.append(value)
     return lags, lev_values
 
-def gainloss_asymmetry(series,sample_points=100000,theta=0.1):
+def gainloss_asymmetry(series,theta=0.1):
     """
-    Bibliography:
-    Inverse statitics in economics: The gain-loss asymmetry
-    Physica A324 338-343 2006.
+
+    Parameters
+    __________
+    series : array-like
+        time-series to be evaluated
+    theta : int optional
+        The hyper-paramter theta
+
+    Returns
+    _______
+    step_dist_p : numpy array
+        The distribution of required time to reach positive theta price change
+    step_dist_n : numpy array
+        The distribution of required time to reach negative theta price change
+
+    References
+    __________
+    .. [1] Mogens H. Jensen et al., Inverse statistics in economics: The gain-loss asymmetry Physica A 324 (1) 338-343 2003.
     """
+    assert sample_points == -1 or sample_points > 0
     assert theta != 0
 
     def compute_required_time_dist(series,theta):
@@ -213,10 +241,6 @@ def gainloss_asymmetry(series,sample_points=100000,theta=0.1):
 
 def coarsefine_volatility(x,delta=5,min_lag=-20,max_lag=20):
     """
-    Bibliography:
-    Volatilities of different time resolutions — Analyzing the dynamics of market components
-    Journal of Empirical Finance Volume 4, Issues 2–3, June 1997, Pages 213-239
-    https://www.sciencedirect.com/science/article/abs/pii/S0927539897000078
     
     Parameters
     _________
@@ -241,6 +265,11 @@ def coarsefine_volatility(x,delta=5,min_lag=-20,max_lag=20):
 
     Examples
     ________
+
+    References
+    __________
+    .. [1] Ulrich A. Müller et al., Volatilities of different time resolutions — Analyzing the dynamics of market components
+    Journal of Empirical Finance Volume 4, Issues 2–3, June 1997, Pages 213-239
     """
 
     def compute_coarse_volatility(series):
