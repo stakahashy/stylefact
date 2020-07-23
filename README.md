@@ -3,7 +3,7 @@
 
 
 ## Module Contents
-- [Finance](#volatility)
+- [Finance](#finance)
 - [Language](#language)
 
 
