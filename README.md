@@ -15,7 +15,7 @@
 
 ## Examples
 <a id="finance"></a>
-###Finance
+### Finance
 
 - probability distribution
 
@@ -31,7 +31,7 @@ import stylefact as sf
 ```
 
 <a id="language"></a>
-###Language
+### Language
 - Vocabulary Population
   - Zipf's law
   - Heaps' law 
