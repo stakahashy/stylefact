@@ -1,0 +1,18 @@
+Ebeling-Neiman's method
+-----------------------
+
+Ebeling-Neiman's method is the fluctuation analysis applied to symbol data.
+
+
+.. math::
+   :nowrap:
+
+   \begin{eqnarray}
+      m(l) &=& \sum_{k=1}^{|W|}{m_{2}(k,l)} \propto l^{\eta}\\
+      m_{2}(k,l) &=& E[(y^{2}(k,l)] - E^{2}[y(k,l)]
+   \end{eqnarray}
+
+:math:`y(k,l)` is the counts of symbol :math:`k\in W` within length :math:`l`
+
+The exponent :math:`\eta=1.0` indicates that the sequence corresponds to the i.i.d. case.
+The original paper reported :math:`\eta=1.69` for the Bible.

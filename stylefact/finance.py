@@ -13,30 +13,22 @@ def log_distribution(series,side='positive',ticks=None):
     _________
     series : array-like
        time-series to be evaluated
-    side : str (positive,negative)
+    side : str (positive,negative), optional
         the side to evaluate the tail
-    ticks : list
-        
+    ticks : array-like, optional
 
     Returns
     _______
-    ticks : list
-        
+    ticks : array-like
     dist_values : list
         the probability between ticks[i] and ticks[i+1]
-        
-
-    Raises
-    ______
-
-    See also
-    ________
 
     Examples
     ________
 
     References
     __________
+
     """
 
     assert side in ['positive','negative']
@@ -74,12 +66,6 @@ def linear_distribution(series):
         frequency of i-th most frequent words
         
 
-    Raises
-    ______
-
-    See also
-    ________
-
     Examples
     ________
 
@@ -114,9 +100,6 @@ def autocorrelation(series,max_lag=1000,lags=None):
     acf_values : list
         list of correlation values
 
-    Raises
-    ______
-
     See also
     ________
 
@@ -125,8 +108,8 @@ def autocorrelation(series,max_lag=1000,lags=None):
 
     References
     __________
-    .. [1] Granger, C.W. J., Ding, Z. Some Properties of Absolute Return: An Alternative Measure of Risk , Annales d'Économie et de Statistique, No. 40, pp. 67-91 1995
-       [2] R. Cont, Empirical properties of asset returns: Stylized facts and statistical issues, Quantitative Finance, 1 (2001), pp. 1–14.
+    .. [Granger et al.] Granger, C.W. J., Ding, Z. Some Properties of Absolute Return: An Alternative Measure of Risk , Annales d'Économie et de Statistique, No. 40, pp. 67-91 1995
+       [Cont] R. Cont, Empirical properties of asset returns: Stylized facts and statistical issues, Quantitative Finance, 1 (2001), pp. 1–14.
 
     """
     if lags is None:
@@ -162,19 +145,13 @@ def leverage_effect(series,max_lag=50,lags=None):
         values of leverage effect
         
 
-    Raises
-    ______
-
-    See also
-    ________
-
     Examples
     ________
 
     References
     __________
-    .. [1] J.P. Bouchaud et al.,  Leverage Effect in Financial Markets: The Retarded Volatility Model.↲ Physical Review Letter 87, 228701 2001.
-    .. [2] T. Qiu et al., Return-volatility correlation in finacial dynamics. Physical Review E 73 06513 2006.
+    .. [Bouchaud et al.] J.P. Bouchaud et al.,  Leverage Effect in Financial Markets: The Retarded Volatility Model.↲ Physical Review Letter 87, 228701 2001.
+    .. [Qiu et al.] T. Qiu et al., Return-volatility correlation in finacial dynamics. Physical Review E 73 06513 2006.
     """
     if lags is None:
         lags = [i+1 for i in range(max_lag)]
@@ -196,12 +173,13 @@ def leverage_effect(series,max_lag=50,lags=None):
 
 def gainloss_asymmetry(series,theta=0.1):
     """
+    Gain loss asymmetry
 
     Parameters
     __________
     series : array-like
         time-series to be evaluated
-    theta : int optional
+    theta : int, optional
         The hyper-paramter theta
 
     Returns
@@ -213,7 +191,11 @@ def gainloss_asymmetry(series,theta=0.1):
 
     References
     __________
-    .. [1] Mogens H. Jensen et al., Inverse statistics in economics: The gain-loss asymmetry Physica A 324 (1) 338-343 2003.
+    .. [Mogens] Mogens H. Jensen et al., Inverse statistics in economics: The gain-loss asymmetry Physica A 324 (1) 338-343 2003.
+
+    Examples
+    ________
+
     """
     assert sample_points == -1 or sample_points > 0
     assert theta != 0
@@ -241,35 +223,36 @@ def gainloss_asymmetry(series,theta=0.1):
 
 def coarsefine_volatility(x,delta=5,min_lag=-20,max_lag=20):
     """
-    
+    Coarse fine volatility
+
     Parameters
-    _________
+    __________
     series : array-like
         time-series of price return 
     delta : int, optional
+        the length to calculate coarse price return 
     min_lag : int, optional
+        minimum lag to evaluate
+        Default is -20
     max_lag : int, optional
+        maximum lag to evaluate
+        Default is 20
 
     Returns
     _______
     lags : list
         list of lags
     values : list
-        list of.values corresponding to the lags.
+        list of values corresponding to the lags
 
-    Raises
-    ______
-
-    See also
-    ________
+    References
+    __________
+    .. [Ulrich] Ulrich A. Müller et al., Volatilities of different time resolutions — Analyzing the dynamics of market components
+    Journal of Empirical Finance Volume 4, Issues 2–3, June 1997, Pages 213-239
 
     Examples
     ________
 
-    References
-    __________
-    .. [1] Ulrich A. Müller et al., Volatilities of different time resolutions — Analyzing the dynamics of market components
-    Journal of Empirical Finance Volume 4, Issues 2–3, June 1997, Pages 213-239
     """
 
     def compute_coarse_volatility(series):
@@ -300,4 +283,5 @@ def coarsefine_volatility(x,delta=5,min_lag=-20,max_lag=20):
             values.append(compute_correlation(coarse_volatility[lag:]),fine_volatility[:-lag])
         else:
             values.append(compute_correlation(coarse_volatility[:lag]),fine_volatility[-lag:])
+
     return lags, values

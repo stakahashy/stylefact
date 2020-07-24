@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Autocorrelation &mdash; stylefact 0.0.1 documentation</title>
+  <title>Ebeling-Neiman’s method &mdash; stylefact 0.0.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Leverage Effect" href="leverage_effect.html" />
-    <link rel="prev" title="Distribution" href="distribution.html" /> 
+    <link rel="next" title="API" href="../api.html" />
+    <link rel="prev" title="Heaps’ law" href="Heaps.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,14 +84,14 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="finance.html">Finance</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="distribution.html">Distribution</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Autocorrelation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="leverage_effect.html">Leverage Effect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="coarse_fine.html">Coarse-Fine Volatility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../finance/finance.html">Finance</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="language.html">Language</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Zipf.html">Zipf's law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Heaps.html">Heaps' law</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ebeling-Neiman's method</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Change Log</a></li>
 </ul>
@@ -140,15 +140,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="finance.html">Finance</a> &raquo;</li>
+          <li><a href="language.html">Language</a> &raquo;</li>
         
-      <li>Autocorrelation</li>
+      <li>Ebeling-Neiman’s method</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/finance/autocorrelation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/language/Ebeling.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,9 +161,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="autocorrelation">
-<h1>Autocorrelation<a class="headerlink" href="#autocorrelation" title="Permalink to this headline">¶</a></h1>
-<p>Autocorrelation</p>
+  <div class="section" id="ebeling-neiman-s-method">
+<h1>Ebeling-Neiman’s method<a class="headerlink" href="#ebeling-neiman-s-method" title="Permalink to this headline">¶</a></h1>
+<p>Ebeling-Neiman’s method is the fluctuation analysis applied to symbol data.</p>
+<div class="math notranslate nohighlight">
+\begin{eqnarray}
+   m(l) &amp;=&amp; \sum_{k=1}^{|W|}{m_{2}(k,l)} \propto l^{\eta}\\
+   m_{2}(k,l) &amp;=&amp; E[(y^{2}(k,l)] - E^{2}[y(k,l)]
+\end{eqnarray}</div><p><span class="math notranslate nohighlight">\(y(k,l)\)</span> is the counts of symbol <span class="math notranslate nohighlight">\(k\in W\)</span> within length <span class="math notranslate nohighlight">\(l\)</span></p>
+<p>The exponent <span class="math notranslate nohighlight">\(\eta=1.0\)</span> indicates that the sequence corresponds to the i.i.d. case.
+The original paper reported <cite>eta=1.69</cite> for the Bible.</p>
 </div>
 
 
@@ -174,10 +181,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="leverage_effect.html" class="btn btn-neutral float-right" title="Leverage Effect" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="distribution.html" class="btn btn-neutral float-left" title="Distribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Heaps.html" class="btn btn-neutral float-left" title="Heaps’ law" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

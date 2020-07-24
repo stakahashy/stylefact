@@ -194,52 +194,50 @@
 </dl>
 <p class="rubric">Examples</p>
 <p class="rubric">References</p>
-<dl class="footnote brackets">
-<dt class="label" id="id1"><span class="brackets">1</span></dt>
-<dd><p>Granger, C.W. J., Ding, Z. Some Properties of Absolute Return: An Alternative Measure of Risk , Annales d’Économie et de Statistique, No. 40, pp. 67-91 1995
-[2] R. Cont, Empirical properties of asset returns: Stylized facts and statistical issues, Quantitative Finance, 1 (2001), pp. 1–14.</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="stylefact.finance.coarsefine_volatility">
 <code class="descclassname">stylefact.finance.</code><code class="descname">coarsefine_volatility</code><span class="sig-paren">(</span><em>x</em>, <em>delta=5</em>, <em>min_lag=-20</em>, <em>max_lag=20</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.finance.coarsefine_volatility" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Coarse fine volatility</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>series</strong> (<em>array-like</em>) – time-series of price return</p></li>
-<li><p><strong>delta</strong> (<em>int</em><em>, </em><em>optional</em>) – </p></li>
-<li><p><strong>min_lag</strong> (<em>int</em><em>, </em><em>optional</em>) – </p></li>
-<li><p><strong>max_lag</strong> (<em>int</em><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>delta</strong> (<em>int</em><em>, </em><em>optional</em>) – the length to calculate coarse price return</p></li>
+<li><p><strong>min_lag</strong> (<em>int</em><em>, </em><em>optional</em>) – minimum lag to evaluate
+Default is -20</p></li>
+<li><p><strong>max_lag</strong> (<em>int</em><em>, </em><em>optional</em>) – maximum lag to evaluate
+Default is 20</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>lags</strong> (<em>list</em>) – list of lags</p></li>
-<li><p><strong>values</strong> (<em>list</em>) – list of.values corresponding to the lags.</p></li>
+<li><p><strong>values</strong> (<em>list</em>) – list of values corresponding to the lags</p></li>
 </ul>
 </p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
 <p class="rubric">References</p>
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets">1</span></dt>
+<dl class="citation">
+<dt class="label" id="ulrich"><span class="brackets">Ulrich</span></dt>
 <dd><p>Ulrich A. Müller et al., Volatilities of different time resolutions — Analyzing the dynamics of market components</p>
 </dd>
 </dl>
 <p>Journal of Empirical Finance Volume 4, Issues 2–3, June 1997, Pages 213-239</p>
+<p class="rubric">Examples</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="stylefact.finance.gainloss_asymmetry">
 <code class="descclassname">stylefact.finance.</code><code class="descname">gainloss_asymmetry</code><span class="sig-paren">(</span><em>series</em>, <em>theta=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.finance.gainloss_asymmetry" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Gain loss asymmetry</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>series</strong> (<em>array-like</em>) – time-series to be evaluated</p></li>
-<li><p><strong>theta</strong> (<em>int optional</em>) – The hyper-paramter theta</p></li>
+<li><p><strong>theta</strong> (<em>int</em><em>, </em><em>optional</em>) – The hyper-paramter theta</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -251,11 +249,12 @@
 </dd>
 </dl>
 <p class="rubric">References</p>
-<dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets">1</span></dt>
+<dl class="citation">
+<dt class="label" id="mogens"><span class="brackets">Mogens</span></dt>
 <dd><p>Mogens H. Jensen et al., Inverse statistics in economics: The gain-loss asymmetry Physica A 324 (1) 338-343 2003.</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
 </dd></dl>
 
 <dl class="function">
@@ -280,16 +279,6 @@
 </dl>
 <p class="rubric">Examples</p>
 <p class="rubric">References</p>
-<dl class="footnote brackets">
-<dt class="label" id="id4"><span class="brackets">1</span></dt>
-<dd><p>J.P. Bouchaud et al.,  Leverage Effect in Financial Markets: The Retarded Volatility Model.↲ Physical Review Letter 87, 228701 2001.</p>
-</dd>
-<dt class="label" id="id5"><span class="brackets">2</span></dt>
-<dd><ol class="upperalpha simple" start="20">
-<li><p>Qiu et al., Return-volatility correlation in finacial dynamics. Physical Review E 73 06513 2006.</p></li>
-</ol>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="function">
@@ -335,8 +324,154 @@
 </dd></dl>
 
 </div>
-<div class="section" id="stylefact-language-module">
-<h2>stylefact.language module<a class="headerlink" href="#stylefact-language-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-stylefact.language">
+<span id="stylefact-language-module"></span><h2>stylefact.language module<a class="headerlink" href="#module-stylefact.language" title="Permalink to this headline">¶</a></h2>
+<p>The toolkit for the statistical laws of natural language</p>
+<dl class="function">
+<dt id="stylefact.language.Ebeling_Neiman">
+<code class="descclassname">stylefact.language.</code><code class="descname">Ebeling_Neiman</code><span class="sig-paren">(</span><em>words</em>, <em>window_sizes=None</em>, <em>max_size=100000</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.language.Ebeling_Neiman" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ebeling Neiman method
+Bibliography:
+Mutual Information Functions of Natural Language Texts. Wentian Li. Santa Fe Research 1989.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>words</strong> (<em>list</em>) – list of symbols to be analyzed</p></li>
+<li><p><strong>window_sizes</strong> (<em>list</em><em>, </em><em>optional</em>) – list of window sizes  to compute the mutual information.
+if x = None, x is specified by utils.generate_x, suitable for log-log plot.
+Default is None.</p></li>
+<li><p><strong>max_size</strong> (<em>int</em><em>, </em><em>optional</em>) – the maximum window size to be evaluated
+Default is 100000</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x</strong> (<em>list</em>) – list of window sizes</p></li>
+<li><p><strong>y</strong> (<em>list</em>) – list of variance corresponding to x[i]</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="ebeling"><span class="brackets">Ebeling</span></dt>
+<dd><p>Ebeling, W. and Neiman A. Long-range correlations between letters and sentences in texts, Physica A. 215 (3), pp. 233-241. 1995.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">language</span> <span class="k">import</span> <span class="n">MI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">MI</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="stylefact.language.Heap">
+<code class="descclassname">stylefact.language.</code><code class="descname">Heap</code><span class="sig-paren">(</span><em>words</em>, <em>x=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.language.Heap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Heaps’ law</p>
+<p>Compute the growth of the number of unique words with respect to the text size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>words</strong> (<em>list</em>) – list of symbols to be analyzed</p></li>
+<li><p><strong>x</strong> (<em>list</em><em>, </em><em>optional</em>) – list of text sizes
+if x = None, x is specified by utils.generate_x, suitable for log-log plot.
+Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x</strong> (<em>list</em>) – list of text size</p></li>
+<li><p><strong>y</strong> (<em>list</em>) – list of number of unique words up to  x[i]-th words</p></li>
+<li><p><strong>exp</strong> (<em>float</em>) – Heap’s exponent</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p>[Heaps] Heaps, Harold Stanley (1978), Information Retrieval: Computational and Theoretical Aspects, Academic Press. Heaps’ law is proposed in Section 7.5 (pp. 206–208).
+[Herdan] Herdan, Gustav (1960), Type-token mathematics, The Hague: Mouton.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">language</span> <span class="k">import</span> <span class="n">Heap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Heap</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span><span class="n">y</span>
+<span class="go">[1,2,3,4,5,6,7,8,9,10] [1,1,1,2,3,3,4,5,6,6]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="stylefact.language.MI">
+<code class="descclassname">stylefact.language.</code><code class="descname">MI</code><span class="sig-paren">(</span><em>words</em>, <em>x=None</em>, <em>threshold=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.language.MI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mutual Information: I(X;Y)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>words</strong> (<em>list</em>) – list of symbols to be analyzed</p></li>
+<li><p><strong>x</strong> (<em>list</em><em>, </em><em>optional</em>) – list of distances to compute the mutual information.
+if x = None, x is specified by utils.generate_x, suitable for log-log plot.
+Default is None.</p></li>
+<li><p><strong>threshold</strong> (<em>float</em><em>, </em><em>optional</em>) – threshold value to avoid log(0) computation.
+Default is 1e-8</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x</strong> (<em>list</em>) – list of distances</p></li>
+<li><p><strong>y</strong> (<em>list</em>) – list of mutual information values for distance of x[i]</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p>[Li] Mutual Information Functions of Natural Language Texts. Wentian Li. Santa Fe Research 1989.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">language</span> <span class="k">import</span> <span class="n">MI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">MI</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="stylefact.language.Zipf">
+<code class="descclassname">stylefact.language.</code><code class="descname">Zipf</code><span class="sig-paren">(</span><em>words</em>, <em>relative_freq=False</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.language.Zipf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zipf’s law</p>
+<p>Compute the rank-frequency distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>words</strong> (<em>list</em>) – list of symbols to be analyzed</p></li>
+<li><p><strong>relative_freq</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the frequency is scaled to the empirical probability.
+Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x</strong> (<em>list</em>) – list of ranks</p></li>
+<li><p><strong>y</strong> (<em>list</em>) – frequency of i-th most frequent words</p></li>
+<li><p><strong>exp</strong> (<em>float</em>) – The Zipf exponent</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">Reference()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">_________()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">()</span></code></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">language</span> <span class="k">import</span> <span class="n">Zipf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">exp</span> <span class="o">=</span> <span class="n">Zipf</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 <div class="section" id="module-stylefact.utils">
 <span id="stylefact-utils-module"></span><h2>stylefact.utils module<a class="headerlink" href="#module-stylefact.utils" title="Permalink to this headline">¶</a></h2>
@@ -345,37 +480,53 @@
 <code class="descclassname">stylefact.utils.</code><code class="descname">generate_x</code><span class="sig-paren">(</span><em>max_x=1000</em>, <em>mode='log'</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.utils.generate_x" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="function">
+<dt id="stylefact.utils.loglog_fitting">
+<code class="descclassname">stylefact.utils.</code><code class="descname">loglog_fitting</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.utils.loglog_fitting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="module-stylefact.visualize">
 <span id="stylefact-visualize-module"></span><h2>stylefact.visualize module<a class="headerlink" href="#module-stylefact.visualize" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="stylefact.visualize.acf">
-<code class="descclassname">stylefact.visualize.</code><code class="descname">acf</code><span class="sig-paren">(</span><em>acf_values</em>, <em>file_name</em>, <em>scale='log'</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.acf" title="Permalink to this definition">¶</a></dt>
+<dt id="stylefact.visualize.Ebeling_Neiman">
+<code class="descclassname">stylefact.visualize.</code><code class="descname">Ebeling_Neiman</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.Ebeling_Neiman" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stylefact.visualize.Heap">
+<code class="descclassname">stylefact.visualize.</code><code class="descname">Heap</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.Heap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stylefact.visualize.Zipf">
+<code class="descclassname">stylefact.visualize.</code><code class="descname">Zipf</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.Zipf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stylefact.visualize.autocorrelation">
+<code class="descclassname">stylefact.visualize.</code><code class="descname">autocorrelation</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>file_name</em>, <em>scale='log'</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.autocorrelation" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="stylefact.visualize.leverage_effect">
-<code class="descclassname">stylefact.visualize.</code><code class="descname">leverage_effect</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.leverage_effect" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">stylefact.visualize.</code><code class="descname">leverage_effect</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.leverage_effect" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="stylefact.visualize.linear_distribution">
-<code class="descclassname">stylefact.visualize.</code><code class="descname">linear_distribution</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.linear_distribution" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">stylefact.visualize.</code><code class="descname">linear_distribution</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.linear_distribution" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="stylefact.visualize.log_distribution">
-<code class="descclassname">stylefact.visualize.</code><code class="descname">log_distribution</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.log_distribution" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="stylefact.visualize.time_series">
-<code class="descclassname">stylefact.visualize.</code><code class="descname">time_series</code><span class="sig-paren">(</span><em>x</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.time_series" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">stylefact.visualize.</code><code class="descname">log_distribution</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.log_distribution" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-stylefact">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-stylefact" title="Permalink to this headline">¶</a></h2>
+<p>Module level accessible objects.</p>
 </div>
 </div>
 
