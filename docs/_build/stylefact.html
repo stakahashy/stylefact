@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>stylefact package &mdash; stylefact 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> stylefact
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="finance/finance.html">Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="language/language.html">Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Change Log</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stylefact</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>stylefact package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/stylefact.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stylefact-package">
+<h1>stylefact package<a class="headerlink" href="#stylefact-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stylefact.tests.html">stylefact.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stylefact.tests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stylefact.tests.html#module-stylefact.tests.test_finance">stylefact.tests.test_finance module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stylefact.tests.html#module-stylefact.tests.test_language">stylefact.tests.test_language module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stylefact.tests.html#module-stylefact.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-stylefact.finance">
+<span id="stylefact-finance-module"></span><h2>stylefact.finance module<a class="headerlink" href="#module-stylefact.finance" title="Permalink to this headline">¶</a></h2>
+<p>The toolkit for the statistical laws of financial time-series</p>
+<dl class="function">
+<dt id="stylefact.finance.autocorrelation">
+<code class="descclassname">stylefact.finance.</code><code class="descname">autocorrelation</code><span class="sig-paren">(</span><em>series</em>, <em>max_lag=1000</em>, <em>lags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.finance.autocorrelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autocorrelation function f(k)  measures the pearson correlation of two variables with lag k.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>series</strong> (<em>array-like</em>) – time-series to be evaluated</p></li>
+<li><p><strong>max_lag</strong> (<em>int</em><em>, </em><em>optional</em>) – maximum lag evaluated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>lags</strong> (<em>list</em>) – list of lags evaluated</p></li>
+<li><p><strong>acf_values</strong> (<em>list</em>) – list of correlation values</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">1</span></dt>
+<dd><p>Granger, C.W. J., Ding, Z. Some Properties of Absolute Return: An Alternative Measure of Risk , Annales d’Économie et de Statistique, No. 40, pp. 67-91 1995
+[2] R. Cont, Empirical properties of asset returns: Stylized facts and statistical issues, Quantitative Finance, 1 (2001), pp. 1–14.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="stylefact.finance.coarsefine_volatility">
+<code class="descclassname">stylefact.finance.</code><code class="descname">coarsefine_volatility</code><span class="sig-paren">(</span><em>x</em>, <em>delta=5</em>, <em>min_lag=-20</em>, <em>max_lag=20</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.finance.coarsefine_volatility" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>series</strong> (<em>array-like</em>) – time-series of price return</p></li>
+<li><p><strong>delta</strong> (<em>int</em><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>min_lag</strong> (<em>int</em><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>max_lag</strong> (<em>int</em><em>, </em><em>optional</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>lags</strong> (<em>list</em>) – list of lags</p></li>
+<li><p><strong>values</strong> (<em>list</em>) – list of.values corresponding to the lags.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets">1</span></dt>
+<dd><p>Ulrich A. Müller et al., Volatilities of different time resolutions — Analyzing the dynamics of market components</p>
+</dd>
+</dl>
+<p>Journal of Empirical Finance Volume 4, Issues 2–3, June 1997, Pages 213-239</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stylefact.finance.gainloss_asymmetry">
+<code class="descclassname">stylefact.finance.</code><code class="descname">gainloss_asymmetry</code><span class="sig-paren">(</span><em>series</em>, <em>theta=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.finance.gainloss_asymmetry" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>series</strong> (<em>array-like</em>) – time-series to be evaluated</p></li>
+<li><p><strong>theta</strong> (<em>int optional</em>) – The hyper-paramter theta</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>step_dist_p</strong> (<em>numpy array</em>) – The distribution of required time to reach positive theta price change</p></li>
+<li><p><strong>step_dist_n</strong> (<em>numpy array</em>) – The distribution of required time to reach negative theta price change</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets">1</span></dt>
+<dd><p>Mogens H. Jensen et al., Inverse statistics in economics: The gain-loss asymmetry Physica A 324 (1) 338-343 2003.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="stylefact.finance.leverage_effect">
+<code class="descclassname">stylefact.finance.</code><code class="descname">leverage_effect</code><span class="sig-paren">(</span><em>series</em>, <em>max_lag=50</em>, <em>lags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.finance.leverage_effect" title="Permalink to this definition">¶</a></dt>
+<dd><p>The leverage effect, the lead-lag correlation between price return and volatility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>series</strong> (<em>list</em>) – list of symbols to be analyzed</p></li>
+<li><p><strong>max_lag</strong> (<em>int</em><em>, </em><em>optional</em>) – maximum lag evaluated</p></li>
+<li><p><strong>lags</strong> (<em>list</em><em>, </em><em>optional</em>) – lags to evaluate leverage effect</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>lags</strong> (<em>list</em>) – list of ranks</p></li>
+<li><p><strong>lev_values</strong> (<em>list</em>) – values of leverage effect</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets">1</span></dt>
+<dd><p>J.P. Bouchaud et al.,  Leverage Effect in Financial Markets: The Retarded Volatility Model.↲ Physical Review Letter 87, 228701 2001.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">2</span></dt>
+<dd><ol class="upperalpha simple" start="20">
+<li><p>Qiu et al., Return-volatility correlation in finacial dynamics. Physical Review E 73 06513 2006.</p></li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="stylefact.finance.linear_distribution">
+<code class="descclassname">stylefact.finance.</code><code class="descname">linear_distribution</code><span class="sig-paren">(</span><em>series</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.finance.linear_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>series</strong> (<em>array-like</em>) – list of symbols to be analyzed</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ticks</strong> (<em>list</em>) – list of ranks</p></li>
+<li><p><strong>dist_values</strong> (<em>list</em>) – frequency of i-th most frequent words</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p class="rubric">References</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stylefact.finance.log_distribution">
+<code class="descclassname">stylefact.finance.</code><code class="descname">log_distribution</code><span class="sig-paren">(</span><em>series</em>, <em>side='positive'</em>, <em>ticks=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.finance.log_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>series</strong> (<em>array-like</em>) – time-series to be evaluated</p></li>
+<li><p><strong>side</strong> (<em>str</em><em> (</em><em>positive</em><em>,</em><em>negative</em><em>)</em><em>, </em><em>optional</em>) – the side to evaluate the tail</p></li>
+<li><p><strong>ticks</strong> (<em>array-like</em><em>, </em><em>optional</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ticks</strong> (<em>array-like</em>)</p></li>
+<li><p><strong>dist_values</strong> (<em>list</em>) – the probability between ticks[i] and ticks[i+1]</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p class="rubric">References</p>
+</dd></dl>
+
+</div>
+<div class="section" id="stylefact-language-module">
+<h2>stylefact.language module<a class="headerlink" href="#stylefact-language-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-stylefact.utils">
+<span id="stylefact-utils-module"></span><h2>stylefact.utils module<a class="headerlink" href="#module-stylefact.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="stylefact.utils.generate_x">
+<code class="descclassname">stylefact.utils.</code><code class="descname">generate_x</code><span class="sig-paren">(</span><em>max_x=1000</em>, <em>mode='log'</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.utils.generate_x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-stylefact.visualize">
+<span id="stylefact-visualize-module"></span><h2>stylefact.visualize module<a class="headerlink" href="#module-stylefact.visualize" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="stylefact.visualize.acf">
+<code class="descclassname">stylefact.visualize.</code><code class="descname">acf</code><span class="sig-paren">(</span><em>acf_values</em>, <em>file_name</em>, <em>scale='log'</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.acf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stylefact.visualize.leverage_effect">
+<code class="descclassname">stylefact.visualize.</code><code class="descname">leverage_effect</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.leverage_effect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stylefact.visualize.linear_distribution">
+<code class="descclassname">stylefact.visualize.</code><code class="descname">linear_distribution</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.linear_distribution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stylefact.visualize.log_distribution">
+<code class="descclassname">stylefact.visualize.</code><code class="descname">log_distribution</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.log_distribution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stylefact.visualize.time_series">
+<code class="descclassname">stylefact.visualize.</code><code class="descname">time_series</code><span class="sig-paren">(</span><em>x</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stylefact.visualize.time_series" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-stylefact">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-stylefact" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Shuntaro Takahashi
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
