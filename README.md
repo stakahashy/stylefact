@@ -1,8 +1,6 @@
 # stylefact
 
-|travis|
-.. |travis| image:: https://img.shields.io/travis/stakahashy/stylefact.svg
-    :target: https://travis-ci.org/stakahashy/stylefact
+[![Travis Build Status](https://travis-ci.org/stakahashy/stakahashy.svg?branch=master)](https://travis-ci.org/stakahashy/stylefact)  
 
 
 ## Module Contents
