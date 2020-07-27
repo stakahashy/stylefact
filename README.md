@@ -3,11 +3,6 @@
 [![Travis Build Status](https://travis-ci.org/stakahashy/stylefact.svg)](https://travis-ci.org/stakahashy/stylefact)  
 
 
-## Module Contents
-- [Finance](#finance)
-- [Language](#language)
-
-
 ### Python 3
   `stylefact` only supports Python 3
 
@@ -15,8 +10,6 @@
   Not ready
 
 ## Examples
-<a id="finance"></a>
-### Finance
 
 - probability distribution
 
@@ -30,14 +23,6 @@ returns = 100 * data['Adj Close'].pct_change().dropna()
 import stylefact as sf
 
 ```
-
-<a id="language"></a>
-### Language
-- Vocabulary Population
-  - Zipf's law
-  - Heaps' law 
-- Temporal Structure
-  - Ebeling and Neiman's method
 
 ## Requirements
 
