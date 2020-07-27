@@ -1,5 +1,8 @@
 # stylefact
 
+|travis|
+.. |travis| image:: https://img.shields.io/travis/stakahashy/stylefact.svg
+    :target: https://travis-ci.org/stakahashy/stylefact
 
 
 ## Module Contents
