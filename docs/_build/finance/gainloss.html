@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ebeling-Neiman’s method &mdash; stylefact 0.0.1 documentation</title>
+  <title>Gain/Loss Asymmetry &mdash; stylefact 0.0.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API" href="../api.html" />
-    <link rel="prev" title="Heaps’ law" href="Heaps.html" /> 
+    <link rel="next" title="Language" href="../language/language.html" />
+    <link rel="prev" title="Coarse-Fine Volatility" href="coarse_fine.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,14 +84,20 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../finance/finance.html">Finance</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="language.html">Language</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Zipf.html">Zipf's law</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Heaps.html">Heaps' law</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Ebeling-Neiman's method</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="finance.html">Finance</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="distribution.html">Probability Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autocorrelation.html">Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leverage_effect.html">Leverage Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coarse_fine.html">Coarse-Fine Volatility</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gain/Loss Asymmetry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-example">Code Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Change Log</a></li>
 </ul>
@@ -140,15 +146,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="language.html">Language</a> &raquo;</li>
+          <li><a href="finance.html">Finance</a> &raquo;</li>
         
-      <li>Ebeling-Neiman’s method</li>
+      <li>Gain/Loss Asymmetry</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/language/Ebeling.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/finance/gainloss.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,16 +167,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ebeling-neiman-s-method">
-<h1>Ebeling-Neiman’s method<a class="headerlink" href="#ebeling-neiman-s-method" title="Permalink to this headline">¶</a></h1>
-<p>Ebeling-Neiman’s method is the fluctuation analysis applied to symbol data.</p>
+  <div class="section" id="gain-loss-asymmetry">
+<h1>Gain/Loss Asymmetry<a class="headerlink" href="#gain-loss-asymmetry" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The gain/loss asymmetry refers to the observation that the speed of price fall is faster than that of the price rise.</p>
 <div class="math notranslate nohighlight">
-\begin{eqnarray}
-   m(l) &amp;=&amp; \sum_{k=1}^{|W|}{m_{2}(k,l)} \propto l^{\eta}\\
-   m_{2}(k,l) &amp;=&amp; E[(y^{2}(k,l)] - E^{2}[y(k,l)]
-\end{eqnarray}</div><p><span class="math notranslate nohighlight">\(y(k,l)\)</span> is the counts of symbol <span class="math notranslate nohighlight">\(k\in W\)</span> within length <span class="math notranslate nohighlight">\(l\)</span></p>
-<p>The exponent <span class="math notranslate nohighlight">\(\eta=1.0\)</span> indicates that the sequence corresponds to the i.i.d. case.
-The original paper reported <span class="math notranslate nohighlight">\(\eta=1.69\)</span> for the Bible.</p>
+\begin{equation}
+   T^{t}(\theta) = \left\{ \begin{array}{ll}
+   \inf{\{ t'| \log{p_{t+t'}}-\log{p_{t}} &gt;=\theta,t'&gt;0 \}} &amp; (\theta&gt;0) \\
+   \inf{\{ t'| \log{p_{t+t'}}-\log{p_{t}} &lt;=\theta,t'&gt;0 \}} &amp; (\theta&lt;0).
+   \end{array} \right.
+\end{equation}</div><a class="reference internal image-reference" href="../_images/return_asymmetry_averaged.png"><img alt="Alternative text" class="align-center" src="../_images/return_asymmetry_averaged.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="code-example">
+<h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Mogens H. Jensen, Anders Johansen, Ingve Simonsen.  Inverse Statistics in Economics : The gain-loss asymmetry. 324 (1-2) pp. 338-343  2003</p></li>
+</ol>
+</div>
 </div>
 
 
@@ -181,10 +199,10 @@ The original paper reported <span class="math notranslate nohighlight">\(\eta=1.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../language/language.html" class="btn btn-neutral float-right" title="Language" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Heaps.html" class="btn btn-neutral float-left" title="Heaps’ law" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="coarse_fine.html" class="btn btn-neutral float-left" title="Coarse-Fine Volatility" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

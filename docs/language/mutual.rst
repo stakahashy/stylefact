@@ -1,4 +1,4 @@
-Zipf's law 
+Mutual Information
 ----------
 
 Description

@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Language" href="../language/language.html" />
+    <link rel="next" title="Gain/Loss Asymmetry" href="gainloss.html" />
     <link rel="prev" title="Leverage Effect" href="leverage_effect.html" /> 
 </head>
 
@@ -85,11 +85,16 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="finance.html">Finance</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distribution.html">Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribution.html">Probability Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autocorrelation.html">Autocorrelation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="leverage_effect.html">Leverage Effect</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Coarse-Fine Volatility</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Coarse-Fine Volatility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-example">Code Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gainloss.html">Gain/Loss Asymmetry</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
@@ -164,7 +169,30 @@
             
   <div class="section" id="coarse-fine-volatility">
 <h1>Coarse-Fine Volatility<a class="headerlink" href="#coarse-fine-volatility" title="Permalink to this headline">¶</a></h1>
-<p>Coarse-fine volatility</p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The coarse-fine volatility correlation is a multi-time-scale analysis of volatility.</p>
+<div class="math notranslate nohighlight">
+\begin{eqnarray}
+   v_{c}^{\tau}(t)&amp;=&amp;\bigg{|}\sum_{i=1}^{\tau}{r_{t-i}}\bigg{|}\\
+   v_{f}^{\tau}(t)&amp;=&amp;\sum_{i=1}^{\tau}{|r_{t-i}|}.
+\end{eqnarray}</div><p>While the coarse volatility is the absolute value of the price movement in <span class="math notranslate nohighlight">\(\tau\)</span> days,
+the fine volatility is the sum of the absolute price return in <span class="math notranslate nohighlight">\(\tau\)</span> days. <span class="math notranslate nohighlight">\(\tau=5\)</span> is starndard as it stands for day-week time-scales.</p>
+<div class="math notranslate nohighlight">
+\begin{equation}
+   \rho_{cf}^{\tau}(k)=Corr(v_{c}^{\tau}(t+k),v_{f}^{\tau}(t)).
+\end{equation}</div><p>Muller et al., Rydberg et al., and Gavrishchaka et al. reported that there exists the negative asymmetry of the lead-lag correlation quantified by the difference</p>
+<div class="math notranslate nohighlight">
+\begin{equation}
+   \Delta\rho_{cf}^{\tau}(k)=\rho_{cf}^{\tau}(k)-\rho_{cf}^{\tau}(-k).
+\end{equation}</div><a class="reference internal image-reference" href="../_images/asymmetry_averaged.png"><img alt="Alternative text" class="align-center" src="../_images/asymmetry_averaged.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="code-example">
+<h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -175,7 +203,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../language/language.html" class="btn btn-neutral float-right" title="Language" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gainloss.html" class="btn btn-neutral float-right" title="Gain/Loss Asymmetry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="leverage_effect.html" class="btn btn-neutral float-left" title="Leverage Effect" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

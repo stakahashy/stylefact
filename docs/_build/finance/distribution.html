@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Distribution &mdash; stylefact 0.0.1 documentation</title>
+  <title>Probability Distribution &mdash; stylefact 0.0.1 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Autocorrelation" href="autocorrelation.html" />
-    <link rel="prev" title="Introduction to ARCH Models" href="introduction.html" /> 
+    <link rel="prev" title="Finance" href="finance.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,11 +85,16 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="finance.html">Finance</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Distribution</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Probability Distribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-example">Code Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="autocorrelation.html">Autocorrelation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="leverage_effect.html">Leverage Effect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coarse_fine.html">Coarse-Fine Volatility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gainloss.html">Gain/Loss Asymmetry</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
@@ -143,7 +148,7 @@
         
           <li><a href="finance.html">Finance</a> &raquo;</li>
         
-      <li>Distribution</li>
+      <li>Probability Distribution</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -162,9 +167,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="distribution">
-<h1>Distribution<a class="headerlink" href="#distribution" title="Permalink to this headline">¶</a></h1>
-<p>The probability distribution of price return</p>
+  <div class="section" id="probability-distribution">
+<h1>Probability Distribution<a class="headerlink" href="#probability-distribution" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The probability distribution function of the price returns <span class="math notranslate nohighlight">\(P(r)\)</span> has been extensively studied in different financial markets over different time scales</p>
+<p>It has been empirically verified that the probability distribution <span class="math notranslate nohighlight">\(P(r)\)</span> consistently has a power-law decay in the tails</p>
+<div class="math notranslate nohighlight">
+\begin{equation}
+   P(r)\propto r^{-\alpha}.
+\end{equation}</div><a class="reference internal image-reference" href="../_images/pos_dist.png"><img alt="Alternative text" class="align-center" src="../_images/pos_dist.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="code-example">
+<h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -178,7 +197,7 @@
         <a href="autocorrelation.html" class="btn btn-neutral float-right" title="Autocorrelation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction to ARCH Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="finance.html" class="btn btn-neutral float-left" title="Finance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

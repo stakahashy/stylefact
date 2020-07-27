@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Leverage Effect" href="leverage_effect.html" />
-    <link rel="prev" title="Distribution" href="distribution.html" /> 
+    <link rel="prev" title="Probability Distribution" href="distribution.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,10 +85,16 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="finance.html">Finance</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="distribution.html">Distribution</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribution.html">Probability Distribution</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Autocorrelation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-example">Code Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="leverage_effect.html">Leverage Effect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coarse_fine.html">Coarse-Fine Volatility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gainloss.html">Gain/Loss Asymmetry</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
@@ -163,7 +169,24 @@
             
   <div class="section" id="autocorrelation">
 <h1>Autocorrelation<a class="headerlink" href="#autocorrelation" title="Permalink to this headline">¶</a></h1>
-<p>Autocorrelation</p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The autocorrelation function <span class="math notranslate nohighlight">\(C(k)\)</span> is a standard statistical tool to evaluate the temporal dependence of financial time-series.</p>
+<div class="math notranslate nohighlight">
+\begin{equation}
+   C(k) = \frac{E[(x_{t}-\mu)(x_{t+k}-\mu)]}{\sigma^{2}}
+\end{equation}</div><p><span class="math notranslate nohighlight">\(x_{t}\)</span> is the value at time-step <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> are the mean and variance of the time-series <span class="math notranslate nohighlight">\(\{x_{t}\}\)</span></p>
+<p>For the price return series, it is expected that the autocorrelation value takes <span class="math notranslate nohighlight">\(C(k)\approx 0\)</span> for any lag <span class="math notranslate nohighlight">\(k\neq0\)</span>. It implies the linear unpredictability of financial time-series.</p>
+<p>For the magnitude (i.e., absolute value, squared value) time-series, it is expected to observe volatility clustering,  the slow decay of the autocorrelation function.</p>
+<a class="reference internal image-reference" href="../_images/acf_averaged.png"><img alt="Alternative text" class="align-center" src="../_images/acf_averaged.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/acf_abs_averaged.png"><img alt="Alternative text" class="align-center" src="../_images/acf_abs_averaged.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="code-example">
+<h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -177,7 +200,7 @@
         <a href="leverage_effect.html" class="btn btn-neutral float-right" title="Leverage Effect" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="distribution.html" class="btn btn-neutral float-left" title="Distribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="distribution.html" class="btn btn-neutral float-left" title="Probability Distribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

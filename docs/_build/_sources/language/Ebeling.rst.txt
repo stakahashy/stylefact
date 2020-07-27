@@ -15,4 +15,4 @@ Ebeling-Neiman's method is the fluctuation analysis applied to symbol data.
 :math:`y(k,l)` is the counts of symbol :math:`k\in W` within length :math:`l`
 
 The exponent :math:`\eta=1.0` indicates that the sequence corresponds to the i.i.d. case.
-The original paper reported `\eta=1.69` for the Bible.
+The original paper reported :math:`\eta=1.69` for the Bible.
