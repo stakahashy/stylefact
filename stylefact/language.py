@@ -3,7 +3,7 @@ The toolkit for the statistical laws of natural language
 """
 import numpy as np
 from collections import Counter
-from utils import generate_x, loglog_fitting
+from stylefact.utils import generate_x, loglog_fitting
 
 def Zipf(words,relative_freq=False):
     """
