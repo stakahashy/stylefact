@@ -1,6 +1,6 @@
 # stylefact
 
-[![Travis Build Status](https://travis-ci.org/stakahashy/stakahashy.svg?branch=master)](https://travis-ci.org/stakahashy/stylefact)  
+[![Travis Build Status](https://travis-ci.org/stakahashy/stylefact.svg)](https://travis-ci.org/stakahashy/stylefact)  
 
 
 ## Module Contents
