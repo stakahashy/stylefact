@@ -1,6 +1,12 @@
 # stylefact
 
-[![Travis Build Status](https://travis-ci.org/stakahashy/stylefact.svg)](https://travis-ci.org/stakahashy/stylefact)  
+
+
+
+| Metric                     |                                                                                                                                                                                                                                          |
+| :------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |                                                                                                                    |
+| **Continuous Integration** | [![Travis Build Status](https://travis-ci.org/stakahashy/stylefact.svg)](https://travis-ci.org/stakahashy/stylefact)                                                                                                                       |
+| **Documentation**          | [![Documentation Status](https://readthedocs.org/projects/stylefact/badge/?version=latest)](http://stylefact.readthedocs.org/en/latest/)                                                                                                           |
 
 
 ### Python 3
@@ -9,7 +15,7 @@
 ## Documentation
   Not ready
 
-## Examples
+## Supported Stylized Facts
 
 - probability distribution
 
