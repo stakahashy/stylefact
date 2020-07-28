@@ -14,11 +14,11 @@ According to :cite:`Bouchaud_2001,Qiu_2006`, this statistical property is quanti
       L(k)=\frac{E[r(t){|r(t+k)|}^{2}-r(t){|r(t)|}^{2}]}{E[|r(t)|^{2}]^{2}}.
    \end{equation}
 
-In contrast to other statistical properties, this property is market dependent according to :cite:`Qiu_2006`
-While the negative correlation (leverage effect) is observed in German DAX, the positive correlation (so-called anti-leverage effect) is detected in Chinese markets.
+In contrast to other statistical properties, this property is market dependent :cite:`Qiu_2006`
+The paper reported that the negative correlation (leverage effect) is observed in German DAX, while the positive correlation (so-called anti-leverage effect) is detected in Chinese markets.
 
 .. image:: ../images/lev_averaged.png
-   :width: 400
+:width: 400
    :align: center
 
 .. centered::
