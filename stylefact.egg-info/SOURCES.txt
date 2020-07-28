@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+stylefact/__init__.py
+stylefact/_version.py
+stylefact/finance.py
+stylefact/utils.py
+stylefact/visualize.py
+stylefact.egg-info/PKG-INFO
+stylefact.egg-info/SOURCES.txt
+stylefact.egg-info/dependency_links.txt
+stylefact.egg-info/requires.txt
+stylefact.egg-info/top_level.txt

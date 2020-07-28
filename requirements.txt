@@ -1,4 +1,3 @@
 numpy
-scipy
-powerlaw
 pytest
+import matplotlib
