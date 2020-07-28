@@ -9,6 +9,9 @@
 ### Python 3
   `stylefact` only supports Python 3
 
+### Documentation
+[stylefact documentation](https://stylefact.readthedocs.io/en/latest/)
+
 
 ## Supported Stylized Facts
 
@@ -17,6 +20,8 @@
 - leverage effect
 - coarse-fine volatility
 - gain/loss asymmetry
+
+## Example
 
 ```python
 import datetime as dt
