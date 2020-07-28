@@ -5,6 +5,8 @@
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | **Continuous Integration** | [![Travis Build Status](https://travis-ci.org/stakahashy/stylefact.svg)](https://travis-ci.org/stakahashy/stylefact)                     |
 | **Documentation**          | [![Documentation Status](https://readthedocs.org/projects/stylefact/badge/?version=latest)](http://stylefact.readthedocs.org/en/latest/) |
+| **pypi**                   | [![pypi Status](https://img.shields.io/pypi/v/stylefact.svg)](https://pypi.python.org/pypi/stylefact)                                    |
+| **pyversions**             | [![pyversions Status](https://img.shields.io/pypi/pyversions/stylefact.svg)](https://pypi.python.org/pypi/stylefact)                     |
 
 ### Python 3
   `stylefact` only supports Python 3
