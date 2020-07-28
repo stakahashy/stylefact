@@ -42,8 +42,8 @@ x,y = sff.log_distribution(returns,'positive')
 sfv.log_distribution(x,y,'log_positive_distribution')
 x,y = sff.log_distribution(returns,'negative')
 sfv.log_distribution(-x,y,'log_negative_distribution')
-x,y = sff.autocorrelation(returns)
 
+x,y = sff.autocorrelation(returns)
 sfv.autocorrelation(x,y,'autocorrelation',scale='linear')
 x,y = sff.autocorrelation(np.abs(returns))
 sfv.autocorrelation(x,y,'abs_autocorrelation',scale='log')
@@ -62,7 +62,7 @@ sfv.gainloss_asymmetry(positive_dist,negative_dist,'gainloss_asymmetry')
 ## Requirements
 
 These requirements reflect the testing environment. It is possible
-that arch will work with older versions.
+that stylefact will work with older versions.
 
 - Python (3.6+)
 - NumPy (1.14+)
