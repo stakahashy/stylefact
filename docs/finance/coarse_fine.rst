@@ -24,7 +24,7 @@ the fine volatility is the sum of the absolute price return in :math:`\tau` days
       \rho_{cf}^{\tau}(k)=Corr(v_{c}^{\tau}(t+k),v_{f}^{\tau}(t)).
    \end{equation}
 
-Muller et al., Rydberg et al., and Gavrishchaka et al. reported that there exists the negative asymmetry of the lead-lag correlation quantified by the difference
+:cite:`Muller_1997,Gavrishchaka_2003` reported that there exists the negative asymmetry of the lead-lag correlation quantified by the difference
 
 .. math::
    :nowrap:
@@ -37,11 +37,20 @@ Muller et al., Rydberg et al., and Gavrishchaka et al. reported that there exist
 
 .. image:: ../images/asymmetry_averaged.png
    :width: 400
-   :alt: Alternative text
    :align: center
+
+.. centered::
+   Fig. Averaged result for S&P500 firms daily price return
 
 Code Example
 ^^^^^^^^^^^^
 
+.. literalinclude:: ../../examples/coarsefine.py
+   :lines: 1-3,6-
+   :language: python
+
 References
 ^^^^^^^^^^
+
+.. bibliography:: refs.bib
+   :filter: docname in docnames

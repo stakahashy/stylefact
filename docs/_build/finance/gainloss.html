@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Language" href="../language/language.html" />
+    <link rel="next" title="References" href="references.html" />
     <link rel="prev" title="Coarse-Fine Volatility" href="coarse_fine.html" /> 
 </head>
 
@@ -95,10 +95,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Change Log</a></li>
 </ul>
 
@@ -171,23 +170,49 @@
 <h1>Gain/Loss Asymmetry<a class="headerlink" href="#gain-loss-asymmetry" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The gain/loss asymmetry refers to the observation that the speed of price fall is faster than that of the price rise.</p>
+<p>The gain/loss asymmetry refers to the observation that the speed of price fall is faster than that of the price rise.
+<a class="bibtex reference internal" href="leverage_effect.html#jensen-2006" id="id1">[JJS06]</a></p>
 <div class="math notranslate nohighlight">
 \begin{equation}
    T^{t}(\theta) = \left\{ \begin{array}{ll}
    \inf{\{ t'| \log{p_{t+t'}}-\log{p_{t}} &gt;=\theta,t'&gt;0 \}} &amp; (\theta&gt;0) \\
    \inf{\{ t'| \log{p_{t+t'}}-\log{p_{t}} &lt;=\theta,t'&gt;0 \}} &amp; (\theta&lt;0).
    \end{array} \right.
-\end{equation}</div><a class="reference internal image-reference" href="../_images/return_asymmetry_averaged.png"><img alt="Alternative text" class="align-center" src="../_images/return_asymmetry_averaged.png" style="width: 400px;" /></a>
-</div>
+\end{equation}</div><a class="reference internal image-reference" href="../_images/return_asymmetry_averaged.png"><img alt="../_images/return_asymmetry_averaged.png" class="align-center" src="../_images/return_asymmetry_averaged.png" style="width: 400px;" /></a>
+<p class="centered">
+<strong>Fig. Averaged result for S&amp;P500 firms daily price return</strong></p></div>
 <div class="section" id="code-example">
 <h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="kn">as</span> <span class="nn">web</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">stylefact.finance</span> <span class="kn">as</span> <span class="nn">sff</span>
+<span class="kn">import</span> <span class="nn">stylefact.visualize</span> <span class="kn">as</span> <span class="nn">sfv</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1990</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">en</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">st</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">en</span><span class="p">)</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">log_prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">log_prices</span><span class="p">)</span>
+<span class="n">positive_dist</span><span class="p">,</span><span class="n">negative_dist</span> <span class="o">=</span> <span class="n">sff</span><span class="o">.</span><span class="n">gainloss_asymmetry</span><span class="p">(</span><span class="n">returns</span><span class="p">)</span>
+<span class="n">sfv</span><span class="o">.</span><span class="n">gainloss_asymmetry</span><span class="p">(</span><span class="n">positive_dist</span><span class="p">,</span><span class="n">negative_dist</span><span class="p">,</span><span class="s1">&#39;gainloss_asymmetry&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Mogens H. Jensen, Anders Johansen, Ingve Simonsen.  Inverse Statistics in Economics : The gain-loss asymmetry. 324 (1-2) pp. 338-343  2003</p></li>
-</ol>
+<p id="bibtex-bibliography-finance/gainloss-0"><dl class="citation">
+<dt class="bibtex label" id="bouchaud-2001"><span class="brackets">BMP01</span></dt>
+<dd><p>Jean-Philippe Bouchaud, Andrew Matacz, and Marc Potters. Leverage effect in financial markets: the retarded volatility model. <em>Physical Review Letters</em>, 87:228701, 2001.</p>
+</dd>
+<dt class="bibtex label" id="jensen-2006"><span class="brackets"><a class="fn-backref" href="#id1">JJS06</a></span></dt>
+<dd><p>Mogens H. Jensen, Anders Johansen, and Ingve Simonsen. Inverse statistics in economics: the gain-loss asymmetry. <em>Physica A</em>, 324(1-2):338–343, 2006.</p>
+</dd>
+<dt class="bibtex label" id="qiu-2006"><span class="brackets">QZRT06</span></dt>
+<dd><p>T. Qiu, B. Zheng, F. Ren, and S. Trimper. Return-volatility correlation in financial dynamics. <em>Physical Review E</em>, 73(6):065103, 2006.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 
@@ -199,7 +224,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../language/language.html" class="btn btn-neutral float-right" title="Language" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="references.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="coarse_fine.html" class="btn btn-neutral float-left" title="Coarse-Fine Volatility" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

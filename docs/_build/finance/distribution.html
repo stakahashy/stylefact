@@ -95,10 +95,9 @@
 <li class="toctree-l2"><a class="reference internal" href="leverage_effect.html">Leverage Effect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coarse_fine.html">Coarse-Fine Volatility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gainloss.html">Gain/Loss Asymmetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Change Log</a></li>
 </ul>
 
@@ -171,18 +170,52 @@
 <h1>Probability Distribution<a class="headerlink" href="#probability-distribution" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The probability distribution function of the price returns <span class="math notranslate nohighlight">\(P(r)\)</span> has been extensively studied in different financial markets over different time scales</p>
-<p>It has been empirically verified that the probability distribution <span class="math notranslate nohighlight">\(P(r)\)</span> consistently has a power-law decay in the tails</p>
+<p>The probability distribution function of the price returns <span class="math notranslate nohighlight">\(P(r_{t})\)</span> has been extensively studied in different financial markets over different time scales <a class="bibtex reference internal" href="#bachelier-1900" id="id1">[Bac00]</a><a class="bibtex reference internal" href="#cont-2001" id="id2">[Con01]</a><a class="bibtex reference internal" href="#chakraborti-2011" id="id3">[CTPA11]</a>.
+It has been empirically verified that the probability distribution <span class="math notranslate nohighlight">\(P(r_{t})\)</span> consistently has a power-law decay in the tails</p>
 <div class="math notranslate nohighlight">
 \begin{equation}
-   P(r)\propto r^{-\alpha}.
-\end{equation}</div><a class="reference internal image-reference" href="../_images/pos_dist.png"><img alt="Alternative text" class="align-center" src="../_images/pos_dist.png" style="width: 400px;" /></a>
+   P(r_{t})\propto r_{t}^{-\alpha}.
+\end{equation}</div><a class="reference internal image-reference" href="../_images/pos_dist.png"><img alt="../_images/pos_dist.png" class="align-center" src="../_images/pos_dist.png" style="width: 400px;" /></a>
+<p class="centered">
+<strong>Fig. Averaged result for S&amp;P500 firms daily price return</strong></p><p>The power-law exponent satisfies <span class="math notranslate nohighlight">\(\alpha\approx3\)</span> for stock markets (i.e., S&amp;P500, NewYork Stock Exchange…) at daily scale.</p>
 </div>
 <div class="section" id="code-example">
 <h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="kn">as</span> <span class="nn">web</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">stylefact.finance</span> <span class="kn">as</span> <span class="nn">sff</span>
+<span class="kn">import</span> <span class="nn">stylefact.visualize</span> <span class="kn">as</span> <span class="nn">sfv</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1990</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">en</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">st</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">en</span><span class="p">)</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">log_prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">log_prices</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">sff</span><span class="o">.</span><span class="n">linear_distribution</span><span class="p">(</span><span class="n">returns</span><span class="p">)</span>
+<span class="n">sfv</span><span class="o">.</span><span class="n">linear_distribution</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;linear_distribution&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">sff</span><span class="o">.</span><span class="n">log_distribution</span><span class="p">(</span><span class="n">returns</span><span class="p">,</span><span class="s1">&#39;positive&#39;</span><span class="p">)</span>
+<span class="n">sfv</span><span class="o">.</span><span class="n">log_distribution</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;log_positive_distribution&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">sff</span><span class="o">.</span><span class="n">log_distribution</span><span class="p">(</span><span class="n">returns</span><span class="p">,</span><span class="s1">&#39;negative&#39;</span><span class="p">)</span>
+<span class="n">sfv</span><span class="o">.</span><span class="n">log_distribution</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;log_negative_distribution&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-finance/distribution-0"><dl class="citation">
+<dt class="bibtex label" id="bachelier-1900"><span class="brackets"><a class="fn-backref" href="#id1">Bac00</a></span></dt>
+<dd><p>Louis Bachelier. Théorie de la spéculation. <em>Annales Scientifiques de l’École Normale Supérieure</em>, 3:21–86, 1900.</p>
+</dd>
+<dt class="bibtex label" id="chakraborti-2011"><span class="brackets"><a class="fn-backref" href="#id3">CTPA11</a></span></dt>
+<dd><p>Anirban Chakraborti, Ioane Toke, Marco Patriarca, and Frédéric Abergel. Econophysics review: i. empirical facts. <em>Quantitative Finance</em>, 11(7):991–1012, 2011.</p>
+</dd>
+<dt class="bibtex label" id="cont-2001"><span class="brackets"><a class="fn-backref" href="#id2">Con01</a></span></dt>
+<dd><p>Rama Cont. Empirical properties of asset returns: stylized facts and statistical issues. <em>Quantitative Finance</em>, 1(2):223–236, 2001.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 

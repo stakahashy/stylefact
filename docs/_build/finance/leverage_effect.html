@@ -95,10 +95,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="coarse_fine.html">Coarse-Fine Volatility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gainloss.html">Gain/Loss Asymmetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Change Log</a></li>
 </ul>
 
@@ -171,36 +170,46 @@
 <h1>Leverage Effect<a class="headerlink" href="#leverage-effect" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The leverage effects refer to the tendency that past price return has the negative correlation with future volatility cite{Bouchaud_2001}.
-According to Bouchaud et al. and Qiu et al., this statistical property is quantified by the following lead-lag correlation function</p>
+<p>The leverage effects refer to the tendency that past price return has the negative correlation with future volatility <a class="bibtex reference internal" href="#bouchaud-2001" id="id1">[BMP01]</a>.
+According to <a class="bibtex reference internal" href="#bouchaud-2001" id="id2">[BMP01]</a><a class="bibtex reference internal" href="#qiu-2006" id="id3">[QZRT06]</a>, this statistical property is quantified by the following lead-lag correlation function</p>
 <div class="math notranslate nohighlight">
 \begin{equation}
    L(k)=\frac{E[r(t){|r(t+k)|}^{2}-r(t){|r(t)|}^{2}]}{E[|r(t)|^{2}]^{2}}.
-\end{equation}</div><p>In contrast to other statistical properties, this property is market dependent according to Qiu et al.
+\end{equation}</div><p>In contrast to other statistical properties, this property is market dependent according to <a class="bibtex reference internal" href="#qiu-2006" id="id4">[QZRT06]</a>
 While the negative correlation (leverage effect) is observed in German DAX, the positive correlation (so-called anti-leverage effect) is detected in Chinese markets.</p>
-</div>
+<a class="reference internal image-reference" href="../_images/lev_averaged.png"><img alt="../_images/lev_averaged.png" class="align-center" src="../_images/lev_averaged.png" style="width: 400px;" /></a>
+<p class="centered">
+<strong>Fig. Averaged result for S&amp;P500 firms daily price return</strong></p></div>
 <div class="section" id="code-example">
 <h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stylefact.finance</span> <span class="kn">as</span> <span class="nn">sff</span>
-<span class="kn">import</span> <span class="nn">stylefact.visualize</span> <span class="kn">as</span> <span class="nn">sfv</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="kn">as</span> <span class="nn">web</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">sff</span><span class="o">.</span><span class="n">leverage_effect</span><span class="p">(</span><span class="n">returns</span><span class="p">)</span>
-<span class="n">sfv</span><span class="o">.</span><span class="n">leverage_effect</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">stylefact.finance</span> <span class="kn">as</span> <span class="nn">sff</span>
+<span class="kn">import</span> <span class="nn">stylefact.visualize</span> <span class="kn">as</span> <span class="nn">sfv</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1990</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">en</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">st</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">en</span><span class="p">)</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">log_prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">log_prices</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">sff</span><span class="o">.</span><span class="n">leverage_effect</span><span class="p">(</span><span class="n">returns</span><span class="p">)</span>
+<span class="n">sfv</span><span class="o">.</span><span class="n">leverage_effect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;leverage_effect&#39;</span><span class="p">)</span>
+
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Bouchaud</p></li>
-<li><p>Qiu</p></li>
-</ol>
+<p id="bibtex-bibliography-finance/leverage_effect-0"><dl class="citation">
+<dt class="bibtex label" id="bouchaud-2001"><span class="brackets">BMP01</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dd><p>Jean-Philippe Bouchaud, Andrew Matacz, and Marc Potters. Leverage effect in financial markets: the retarded volatility model. <em>Physical Review Letters</em>, 87:228701, 2001.</p>
+</dd>
+<dt class="bibtex label" id="qiu-2006"><span class="brackets">QZRT06</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
+<dd><p>T. Qiu, B. Zheng, F. Ren, and S. Trimper. Return-volatility correlation in financial dynamics. <em>Physical Review E</em>, 73(6):065103, 2006.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 

@@ -1,12 +1,9 @@
 """
 The toolkit for the statistical laws of financial time-series
 """
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 import numpy as np
-import powerlaw
 from bisect import bisect_left
-def log_distribution(series,side='positive',ticks=None):
+def log_distribution(series,side='positive',ticks=None,sample_point=100):
     """
     
     Parameters
@@ -16,6 +13,10 @@ def log_distribution(series,side='positive',ticks=None):
     side : str (positive,negative), optional
         the side to evaluate the tail
     ticks : array-like, optional
+        hoge
+    sample_point : int, optional
+        If ticks is not specified, the number of ticks is set to this value
+        Default 100
 
     Returns
     _______
@@ -35,11 +36,11 @@ def log_distribution(series,side='positive',ticks=None):
     if side == 'positive':
         series = series[series > 0]
         if ticks is None:
-            ticks = np.logspace(0,np.log(np.max(series)),num=sample_point)
+            ticks = np.linspace(0,np.max(series),num=sample_point)
     else:
         series = series[series < 0]
         if ticks is None:
-            ticks = np.logspace(np.log(np.min(series),0),num=sample_point)
+            ticks = -np.linspace(0,-np.min(series),num=sample_point)[::-1]
     
     series = np.sort(series)
     dist_values = []
@@ -74,7 +75,7 @@ def linear_distribution(series):
     """
 
     ticks = np.linspace(np.min(series),np.max(series),num=100)
-    series = np.sort(seies)
+    series = np.sort(series)
     dist_values = []
 
     for tick1,tick2 in zip(ticks[:-1],ticks[1:]):
@@ -115,11 +116,12 @@ def autocorrelation(series,max_lag=1000,lags=None):
     if lags is None:
         lags = [i+1 for i in range(max_lag)]
     acf_values = []
+    mean = np.mean(series)
     var = np.var(series)
     for lag in lags:
         series_1 = series[:-lag]
         series_2 = series[lag:]
-        value = np.mean(series_1*series_2)/var
+        value = np.mean((series_1-mean)*(series_2-mean))/var
         acf_values.append(value)
         
     return lags,acf_values
@@ -164,9 +166,9 @@ def leverage_effect(series,max_lag=50,lags=None):
         if lag == 0:
             first_term = np.mean(series*(series)**2)
         elif lag > 0:
-            first_term = np.mean(series[:-lag]*(series_abs[lag:]**2))
+            first_term = np.mean(series[:-lag]*(abs_series[lag:]**2))
         else:
-            first_term = np.mean(series[-lag:]*(series_abs[:lag]**2))
+            first_term = np.mean(series[-lag:]*(abs_series[:lag]**2))
         value = (first_term-second_term)/Z
         lev_values.append(value)
     return lags, lev_values
@@ -197,12 +199,11 @@ def gainloss_asymmetry(series,theta=0.1):
     ________
 
     """
-    assert sample_points == -1 or sample_points > 0
     assert theta != 0
 
     def compute_required_time_dist(series,theta):
         step_record = []
-        for sample_point in range(sample_points):
+        for sample_point in range(series.size):
             diff = 0.
             for step in range(1,series.size-sample_point-1):
                 diff += series[sample_point+step-1]
@@ -221,7 +222,7 @@ def gainloss_asymmetry(series,theta=0.1):
 
     return step_dist_p,step_dist_n
 
-def coarsefine_volatility(x,delta=5,min_lag=-20,max_lag=20):
+def coarsefine_volatility(series,delta=5,lags=None,min_lag=-20,max_lag=20):
     """
     Coarse fine volatility
 
@@ -259,10 +260,12 @@ def coarsefine_volatility(x,delta=5,min_lag=-20,max_lag=20):
         coarse_volatility = []
         for i in range(series.size//delta):
             coarse_volatility.append(np.abs(np.sum(series[delta*i:delta*(i+1)])))
+        return coarse_volatility
     def compute_fine_volatility(series):
         fine_volatility = []
         for i in range(series.size//delta):
             fine_volatility.append(np.sum(np.abs(series)[delta*i:delta*(i+1)])/delta)
+        return fine_volatility
    
     def compute_correlation(x1,x2):
         x1_mean = np.mean(x1)
@@ -280,8 +283,8 @@ def coarsefine_volatility(x,delta=5,min_lag=-20,max_lag=20):
         if lag == 0:
             values.append(compute_correlation(coarse_volatility,fine_volatility))
         elif lag > 0:
-            values.append(compute_correlation(coarse_volatility[lag:]),fine_volatility[:-lag])
+            values.append(compute_correlation(coarse_volatility[lag:],fine_volatility[:-lag]))
         else:
-            values.append(compute_correlation(coarse_volatility[:lag]),fine_volatility[-lag:])
+            values.append(compute_correlation(coarse_volatility[:lag],fine_volatility[-lag:]))
 
     return lags, values

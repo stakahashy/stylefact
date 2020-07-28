@@ -95,10 +95,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gainloss.html">Gain/Loss Asymmetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Change Log</a></li>
 </ul>
 
@@ -181,17 +180,42 @@ the fine volatility is the sum of the absolute price return in <span class="math
 <div class="math notranslate nohighlight">
 \begin{equation}
    \rho_{cf}^{\tau}(k)=Corr(v_{c}^{\tau}(t+k),v_{f}^{\tau}(t)).
-\end{equation}</div><p>Muller et al., Rydberg et al., and Gavrishchaka et al. reported that there exists the negative asymmetry of the lead-lag correlation quantified by the difference</p>
+\end{equation}</div><p><a class="bibtex reference internal" href="#muller-1997" id="id1">[MDD+97]</a><a class="bibtex reference internal" href="#gavrishchaka-2003" id="id2">[GG03]</a> reported that there exists the negative asymmetry of the lead-lag correlation quantified by the difference</p>
 <div class="math notranslate nohighlight">
 \begin{equation}
    \Delta\rho_{cf}^{\tau}(k)=\rho_{cf}^{\tau}(k)-\rho_{cf}^{\tau}(-k).
-\end{equation}</div><a class="reference internal image-reference" href="../_images/asymmetry_averaged.png"><img alt="Alternative text" class="align-center" src="../_images/asymmetry_averaged.png" style="width: 400px;" /></a>
-</div>
+\end{equation}</div><a class="reference internal image-reference" href="../_images/asymmetry_averaged.png"><img alt="../_images/asymmetry_averaged.png" class="align-center" src="../_images/asymmetry_averaged.png" style="width: 400px;" /></a>
+<p class="centered">
+<strong>Fig. Averaged result for S&amp;P500 firms daily price return</strong></p></div>
 <div class="section" id="code-example">
 <h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="kn">as</span> <span class="nn">web</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">stylefact.finance</span> <span class="kn">as</span> <span class="nn">sff</span>
+<span class="kn">import</span> <span class="nn">stylefact.visualize</span> <span class="kn">as</span> <span class="nn">sfv</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1990</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">en</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">st</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">en</span><span class="p">)</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">log_prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">log_prices</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">sff</span><span class="o">.</span><span class="n">coarsefine_volatility</span><span class="p">(</span><span class="n">returns</span><span class="p">)</span>
+<span class="n">sfv</span><span class="o">.</span><span class="n">coarsefine_volatility</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;coarsefine&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-finance/coarse_fine-0"><dl class="citation">
+<dt class="bibtex label" id="gavrishchaka-2003"><span class="brackets"><a class="fn-backref" href="#id2">GG03</a></span></dt>
+<dd><p>V. V. Gavrishchaka and S. B. Ganguli. Volatility forecasting from multiscale and high-dimensional market data. <em>Neurocomputing</em>, 55(1):285–305, 2003.</p>
+</dd>
+<dt class="bibtex label" id="muller-1997"><span class="brackets"><a class="fn-backref" href="#id1">MDD+97</a></span></dt>
+<dd><p>Ulrich A. Müller, Michel M. Dacorogna, Rakhal D. Davé, Richard B. Olsen, Olivier V. Pictet, and Jacob E. von Weizsäcker. Volatilities of different time resolutions - analyzing the dynamics of market components. <em>Journal of Empirical Finance</em>, 4(2):213–239, 1997.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 

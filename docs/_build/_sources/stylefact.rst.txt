@@ -1,13 +1,6 @@
 stylefact package
 =================
 
-Subpackages
------------
-
-.. toctree::
-
-    stylefact.tests
-
 Submodules
 ----------
 
@@ -15,14 +8,6 @@ stylefact.finance module
 ------------------------
 
 .. automodule:: stylefact.finance
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-stylefact.language module
--------------------------
-
-.. automodule:: stylefact.language
     :members:
     :undoc-members:
     :show-inheritance:

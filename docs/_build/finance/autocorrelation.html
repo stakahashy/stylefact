@@ -95,10 +95,9 @@
 <li class="toctree-l2"><a class="reference internal" href="leverage_effect.html">Leverage Effect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coarse_fine.html">Coarse-Fine Volatility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gainloss.html">Gain/Loss Asymmetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../language/language.html">Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Change Log</a></li>
 </ul>
 
@@ -179,13 +178,33 @@
 <p>For the price return series, it is expected that the autocorrelation value takes <span class="math notranslate nohighlight">\(C(k)\approx 0\)</span> for any lag <span class="math notranslate nohighlight">\(k\neq0\)</span>. It implies the linear unpredictability of financial time-series.</p>
 <p>For the magnitude (i.e., absolute value, squared value) time-series, it is expected to observe volatility clustering,  the slow decay of the autocorrelation function.</p>
 <a class="reference internal image-reference" href="../_images/acf_averaged.png"><img alt="Alternative text" class="align-center" src="../_images/acf_averaged.png" style="width: 400px;" /></a>
-<a class="reference internal image-reference" href="../_images/acf_abs_averaged.png"><img alt="Alternative text" class="align-center" src="../_images/acf_abs_averaged.png" style="width: 400px;" /></a>
-</div>
+<p class="centered">
+<strong>Fig. Averaged result for S&amp;P500 firms daily price return</strong></p><a class="reference internal image-reference" href="../_images/acf_abs_averaged.png"><img alt="Alternative text" class="align-center" src="../_images/acf_abs_averaged.png" style="width: 400px;" /></a>
+<p class="centered">
+<strong>Fig. Averaged result for S&amp;P500 firms daily absolute price return</strong></p></div>
 <div class="section" id="code-example">
 <h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="kn">as</span> <span class="nn">web</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">stylefact.finance</span> <span class="kn">as</span> <span class="nn">sff</span>
+<span class="kn">import</span> <span class="nn">stylefact.visualize</span> <span class="kn">as</span> <span class="nn">sfv</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1990</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">en</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">st</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">en</span><span class="p">)</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">log_prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">log_prices</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">sff</span><span class="o">.</span><span class="n">autocorrelation</span><span class="p">(</span><span class="n">returns</span><span class="p">)</span>
+<span class="n">sfv</span><span class="o">.</span><span class="n">autocorrelation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;autocorrelation&#39;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">sff</span><span class="o">.</span><span class="n">autocorrelation</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">returns</span><span class="p">))</span>
+<span class="n">sfv</span><span class="o">.</span><span class="n">autocorrelation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;abs_autocorrelation&#39;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-finance/autocorrelation-0"></p>
 </div>
 </div>
 

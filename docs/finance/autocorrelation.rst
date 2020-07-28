@@ -24,14 +24,28 @@ For the magnitude (i.e., absolute value, squared value) time-series, it is expec
    :alt: Alternative text
    :align: center
 
+.. centered::
+   Fig. Averaged result for S&P500 firms daily price return
+
+
 .. image:: ../images/acf_abs_averaged.png
    :width: 400
    :alt: Alternative text
    :align: center
 
+.. centered::
+   Fig. Averaged result for S&P500 firms daily absolute price return
+
+
 Code Example
 ^^^^^^^^^^^^
+
+.. literalinclude:: ../../examples/autocorrelation.py
+   :lines: 1-3,6-
+   :language: python
 
 References
 ^^^^^^^^^^
 
+.. bibliography:: refs.bib
+   :filter: docname in docnames

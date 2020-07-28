@@ -5,7 +5,7 @@ Description
 ^^^^^^^^^^^
 
 The gain/loss asymmetry refers to the observation that the speed of price fall is faster than that of the price rise.
-
+:cite:`Jensen_2006`
 
 .. math::
    :nowrap:
@@ -20,14 +20,21 @@ The gain/loss asymmetry refers to the observation that the speed of price fall i
 
 .. image:: ../images/return_asymmetry_averaged.png
    :width: 400
-   :alt: Alternative text
    :align: center
+
+.. centered::
+   Fig. Averaged result for S&P500 firms daily price return
 
 
 Code Example
 ^^^^^^^^^^^^
 
+.. literalinclude:: ../../examples/gainloss_asymmetry.py
+   :lines: 1-3,6-
+   :language: python
 
 References
 ^^^^^^^^^^
-1. Mogens H. Jensen, Anders Johansen, Ingve Simonsen.  Inverse Statistics in Economics : The gain-loss asymmetry. 324 (1-2) pp. 338-343  2003 
+
+.. bibliography:: refs.bib
+   :cited:

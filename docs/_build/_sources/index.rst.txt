@@ -3,17 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. note::
 
-  `Stable documentation <https://bashtage.github.io/arch/>`_ for the latest release
-  is located at `doc <https://bashtage.github.io/arch/>`_.
-  Documentation for `recent developments <https://bashtage.github.io/arch/devel/>`_
-  is located at `devel <https://bashtage.github.io/arch/devel/>`_.
 
 Introduction
 ============
 
-stylefact package provides the tools to analyze the statistical laws of financial time-series and language.
+stylefact package provides the tools to analyze the statistical laws of financial time-series
 
 
 .. toctree::
@@ -21,8 +16,6 @@ stylefact package provides the tools to analyze the statistical laws of financia
   :hidden:
 
   Finance <finance/finance>
-  Language <language/language>
-  API Reference <api>
   Change Log <changes>
 
 Index

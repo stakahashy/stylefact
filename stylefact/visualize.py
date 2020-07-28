@@ -16,42 +16,31 @@ def leverage_effect(x,y,filename):
 
 
 def linear_distribution(x,y,filename):
+    if len(x) == len(y) + 1:
+        x = [(x[i]+x[i+1])/2 for i in range(x.size-1)]
     plt.figure(dpi=150)
-    plt.plot(x,y,'.',markersize=8)
-    plt.xticks(fontsize=20)
-    plt.yticks(fontsize=20)
-    plt.xlabel('Normalized Scale in $\sigma$',fontsize=20)
-    plt.ylabel('Probability Density Function $P(r)$',fontsize=40)
+    plt.plot(x,y,'.')
+    plt.xlabel(r'Price Return $r_{t}$',fontsize=16)
+    plt.ylabel('Probability Density Function $P(r)$',fontsize=16)
     plt.savefig(filename,transparent=True)
     plt.close()
 
 
 def log_distribution(x,y,filename):
-    #split into positive and negative sides
-    dist_x_pos = x[x > 0]
-    dist_y_pos = y[-dist_x_pos.size:]
-    dist_x_neg = -x[x < 0]
-    dist_y_neg = y[:dist_x_neg.size]
-    #for positive
+    if len(x) == len(y) + 1:
+        x = [(x[i]+x[i+1])/2 for i in range(x.size-1)]
     plt.figure(dpi=150)
-    plt.plot(dist_x_pos,dist_y_pos,'.')
-    plt.xlabel('Normalized Scale in $\sigma$',fontsize=20)
-    plt.ylabel('Probability Density Function $P(r)$',fontsize=20)
+    plt.plot(x,y,'.')
+    plt.ylim(1e-4,1e0)
+    plt.xlabel(r'Price Return $r_{t}$',fontsize=16)
+    plt.ylabel(r'Probability Density Function $P(r)$',fontsize=16)
     plt.xscale('log')
     plt.yscale('log')
     plt.savefig(filename, transparent=True)
     plt.close()
-    #for negative
-    plt.figure(dpi=150)
-    plt.plot(dist_x_neg,dist_y_neg,'.')
-    plt.xlabel('Normalized Scale in $\sigma$',fontsize=20)
-    plt.ylabel('Probability Density Function $P(r)$',fontsize=20)
-    plt.xscale('log')
-    plt.yscale('log')
-    plt.savefig(filename+'_neg_log.png', transparent=True)
     plt.close()
 
-def autocorrelation(x,y,file_name,scale='log'):
+def autocorrelation(x,y,filename,scale='log'):
     plt.figure(dpi=150)
     plt.plot(x,y,'.')
     if scale is 'log':
@@ -60,34 +49,36 @@ def autocorrelation(x,y,file_name,scale='log'):
         plt.ylim(-1.,1.)
     plt.xscale(scale)
     plt.yscale(scale)
-    plt.xlabel('lag $k$',fontsize=20)
-    plt.ylabel('autocorrelation',fontsize=20)
+    plt.xlabel('lag $k$',fontsize=16)
+    plt.ylabel('correlation',fontsize=16)
     plt.savefig(filename,transparent=True)
     plt.close()
 
-def Zipf(x,y,filename):
+def coarsefine_volatility(x,y,filename):
+    diffs = []
+    for i in range(len(x)):
+        if x[i] == 0:
+            zero_position = i
+    max_lag = min(max(x),-min(x))
+    for i in range(max_lag):
+        diffs.append(y[zero_position+i]-y[zero_position-i])
     plt.figure(dpi=150)
     plt.plot(x,y)
-    plt.xscale('log')
-    plt.yscale('log')
-    plt.xlabel('rank',fontsize=20)
-    plt.ylabel('frequency',fontsize=20)
+    plt.plot([i for i in range(max_lag)],diffs)
+    plt.xlabel('lag $k$',fontsize=16)
+    plt.ylabel(r'$\rho (k)$',fontsize=16)
+    plt.axhline(color='black')
     plt.savefig(filename,transparent=True)
     plt.close()
 
-def Heap(x,y,filename):
+def gainloss_asymmetry(y1,y2,filename,xscale='log'):
     plt.figure(dpi=150)
-    plt.plot(x,y,'.')
-    plt.xscale('log')
-    plt.yscale('log')
+    plt.plot([i+1 for i in range(len(y1))],y1,'.',color='red')
+    plt.plot([i+1 for i in range(len(y2))],y2,'.',color='blue')
+    plt.xlabel('step',fontsize=16)
+    plt.ylabel('distribution',fontsize=16)
+    plt.xscale(xscale)
     plt.savefig(filename,transparent=True)
     plt.close()
 
-def Ebeling_Neiman(x,y,filename):
-    plt.figure(dpi=150)
-    plt.plot(x,y)
-    plt.xscale('log')
-    plt.yscale('log')
-    plt.xlabel('window size')
-    plt.ylabel('variance')
-    plt.savefig(filename,transparent=True)
+
