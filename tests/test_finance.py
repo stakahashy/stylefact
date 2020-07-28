@@ -4,11 +4,13 @@ import pytest
 import stylefact.finance as sff
 
 
-def test_prob():
-    assert 1 == 1
+def test_linear_distribution():
     pass
 
-def test_correlation():
+def test_log_distribution():
+    pass
+
+def test_autocorrelation():
     pass
 
 def test_leverage_effect():
@@ -16,3 +18,6 @@ def test_leverage_effect():
 
 def test_gainloss_asymmetry():
     pass
+
+def test_coarsefine_volatility():
+	pass
