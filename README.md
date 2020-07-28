@@ -8,6 +8,14 @@
 | **pypi**                   | [![pypi Status](https://img.shields.io/pypi/v/stylefact.svg)](https://pypi.python.org/pypi/stylefact)                                    |
 | **pyversions**             | [![pyversions Status](https://img.shields.io/pypi/pyversions/stylefact.svg)](https://pypi.python.org/pypi/stylefact)                     |
 
+## Installation
+
+Releases are available PyPI and can be installed with `pip`.
+
+```bash
+pip install stylefact
+```
+
 ### Python 3
   `stylefact` only supports Python 3
 
