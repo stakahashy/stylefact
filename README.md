@@ -7,6 +7,7 @@
 | **Documentation**          | [![Documentation Status](https://readthedocs.org/projects/stylefact/badge/?version=latest)](http://stylefact.readthedocs.org/en/latest/) |
 | **pypi**                   | [![pypi Status](https://img.shields.io/pypi/v/stylefact.svg)](https://pypi.python.org/pypi/stylefact)                                    |
 | **pyversions**             | [![pyversions Status](https://img.shields.io/pypi/pyversions/stylefact.svg)](https://pypi.python.org/pypi/stylefact)                     |
+| **Code Quality**           | [![Code Quality: Python](https://img.shields.io/lgtm/grade/python/g/stakahashy/stylefact.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/stakahashy/stylefact/context:python) | 
 
 ## Installation
 
